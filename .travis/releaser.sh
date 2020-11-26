@@ -22,6 +22,7 @@
 #   - git-semver python package (pip install git-semver)
 
 # Exit when latest commit is tagged
+echo "[`git tag --points-at`]"
 [[ $(git tag --points-at) ]] && exit 0
 
 # Some basic variables
