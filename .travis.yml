@@ -31,9 +31,6 @@ jobs:
     - os: linux
       env:
         - ANSIBLE=2.5
-    
-matrix:
-  fast_finish: true
 install:
   - pip install tox-travis git-semver
 script:
