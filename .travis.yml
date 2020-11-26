@@ -2,15 +2,20 @@
 sudo: required
 language: python
 cache: pip
-arch:
-  - amd64
-  - arm64
 services:
   - docker
-env:
-  - ANSIBLE=2.5
-  - ANSIBLE=2.6
-  - ANSIBLE=2.7
+jobs:
+  include:
+    - stage: Build and test wheel
+      os: linux
+      arch: arm64-graviton2
+      dist: focal
+      virt: vm
+      group: edge
+      env:
+        - ANSIBLE=2.5
+        - ANSIBLE=2.6
+        - ANSIBLE=2.7
 matrix:
   fast_finish: true
 install:
