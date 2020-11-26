@@ -2,7 +2,9 @@
 sudo: required
 language: python
 cache: pip
-arch: arm64
+arch:
+  - amd64
+  - arm64
 services:
   - docker
 env:
@@ -18,7 +20,9 @@ script:
 deploy:
   provider: script
   skip_cleanup: true
-  script: .travis/releaser.sh
+  script:
+    - git --version
+    - .travis/releaser.sh
   on:
     branch: master
 branches:
