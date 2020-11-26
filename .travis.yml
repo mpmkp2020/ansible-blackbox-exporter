@@ -5,17 +5,33 @@ cache: pip
 services:
   - docker
 jobs:
+  fast_finish: true
   include:
-    - stage: Build and test wheel
-      os: linux
+    - os: linux
       arch: arm64-graviton2
       dist: focal
       virt: vm
       group: edge
       env:
         - ANSIBLE=2.5
+    - os: linux
+      arch: arm64-graviton2
+      dist: focal
+      virt: vm
+      group: edge
+      env:
         - ANSIBLE=2.6
+    - os: linux
+      arch: arm64-graviton2
+      dist: focal
+      virt: vm
+      group: edge
+      env:
         - ANSIBLE=2.7
+    - os: linux
+      env:
+        - ANSIBLE=2.5
+    
 matrix:
   fast_finish: true
 install:
