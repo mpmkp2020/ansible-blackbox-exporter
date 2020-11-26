@@ -1,4 +1,10 @@
 ---
+trigger:
+  branches:
+    include:
+    - refs/tags/*
+    - master
+
 sudo: required
 language: python
 cache: pip
