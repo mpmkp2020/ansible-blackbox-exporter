@@ -56,7 +56,8 @@ fi
 # Generate CHANGELOG.md
 git checkout master
 git pull
-docker run -it --rm -v "$(pwd)":/usr/local/src/your-app ferrarimarco/github-changelog-generator:1.14.3 \
+#docker run -it --rm -v "$(pwd)":/usr/local/src/your-app ferrarimarco/github-changelog-generator:1.14.3 \
+docker run -it --rm -v "$(pwd)":/usr/local/src/your-app odidev/github-changelog-generator:manifest-latest \
                -u "${ORGANIZATION}" -p "${PROJECT}" --token "${GH_TOKEN}" \
                --release-url "${GALAXY_URL}" \
                --unreleased-label "**Next release**" --no-compare-link
