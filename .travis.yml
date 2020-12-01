@@ -4,37 +4,6 @@ language: python
 cache: pip
 services:
   - docker
-#jobs:
-#  fast_finish: true
-#  include:
-#    - os: linux
-#      arch: arm64-graviton2
-#      dist: focal
-#      virt: vm
-#      group: edge
-#      env:
-#        - ANSIBLE=2.5
-#    - os: linux
-#      arch: arm64-graviton2
-#      dist: focal
-#      virt: vm
-#      group: edge
-#      env:
-#        - ANSIBLE=2.6
-#    - os: linux
-#      arch: arm64-graviton2
-#      dist: focal
-#      virt: vm
-#      group: edge
-#      env:
-#        - ANSIBLE=2.7
-#    - os: linux
-#      env:
-#        - ANSIBLE=2.5
-env:
-  - ANSIBLE=2.5
-  - ANSIBLE=2.6
-  - ANSIBLE=2.7
 jobs:
   fast_finish: true
   include:
@@ -43,7 +12,25 @@ jobs:
       dist: focal
       virt: vm
       group: edge
+      env: ANSIBLE=2.5
     - os: linux
+      arch: arm64-graviton2
+      dist: focal
+      virt: vm
+      group: edge
+      env: ANSIBLE=2.6
+    - os: linux
+      arch: arm64-graviton2
+      dist: focal
+      virt: vm
+      group: edge
+      env: ANSIBLE=2.7
+    - os: linux
+      env: ANSIBLE=2.5
+    - os: linux
+      env: ANSIBLE=2.6
+    - os: linux
+      env: ANSIBLE=2.7
 
 install:
   - pip install tox-travis git-semver
